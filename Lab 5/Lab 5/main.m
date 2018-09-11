@@ -20,13 +20,12 @@ int main(int argc, const char * argv[]) {
         NSString *right = @"Right!\n";
         NSString *wrong = @"Wrong!\n";
         ScoreKeeper *scoreKeeper = [[ScoreKeeper alloc] init];
-        InputHandler *inputHandler = [[InputHandler alloc] init];
         QuestionManager *questionManager = [[QuestionManager alloc] init];
         QuestionFactory *questionFactory = [[QuestionFactory alloc] init];
         while (gameOn) {
             Question *q = [questionFactory generateRandomQuestion];
             [q generateQuestion];
-            [[questionManager questions] addObjectsFromArray:q];
+            [[questionManager questions] addObject:q];
             
             NSString *userAnswer = [InputHandler getUserInputWithLength:10 widthPrompt:[q question]];
             NSInteger userAnsInt = [userAnswer integerValue];
