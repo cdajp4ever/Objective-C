@@ -44,6 +44,13 @@
         default:
             break;
     }
+    NSUInteger count = _toppings.count;
+    if (count == 2) {
+        return [NSString stringWithFormat:@"Size: %@, Toppings: %@, %@.", pizzaSize, _toppings[0], _toppings[1]];
+    } else if (count == 1) {
+        return [NSString stringWithFormat:@"Size: %@, Toppings: %@.", pizzaSize, _toppings[0]];
+    } else {
     return [NSString stringWithFormat:@"Size: %@, Toppings: %@, %@, %@.", pizzaSize, _toppings[0], _toppings[1], _toppings[2]];
+    }
 }
 @end

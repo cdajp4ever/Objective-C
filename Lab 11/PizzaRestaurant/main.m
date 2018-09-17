@@ -45,7 +45,7 @@ int main(int argc, const char * argv[])
             default:
                 break;
         }
-        NSLog(@"Please pick your pizza size and toppings:");
+        NSLog(@"Please pick your pizza size and up to 3 toppings:");
         while (TRUE) {
             // Loop forever
             
@@ -80,9 +80,12 @@ int main(int argc, const char * argv[])
                 Pizza *pizza = [Pizza meatLoversWithSize:psize];
                 NSLog(@"%@",pizza);
             } else {
-                NSLog(@"%@",[restaurantKitchen makePizzaWithSize:psize toppings:toppings]);
                 Pizza *pizza = [restaurantKitchen makePizzaWithSize:psize toppings:toppings];
+                if ([pizza.toppings containsObject:@"none"]) {
+                    NSLog(@"Order something else!");
+                } else {
                 NSLog(@"%@", pizza);
+                }
             }
         }
     }
